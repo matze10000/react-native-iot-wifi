@@ -69,7 +69,7 @@
             }];
             if (ssid && [ssid length]) {
 			    [[NEHotspotConfigurationManager sharedManager] removeConfigurationForSSID:ssid];
-                callback(@["removed"]);
+                callback(@[@"removed"]);
             }
         } else {
             callback(@[@"Not supported in iOS<11.0"]);
