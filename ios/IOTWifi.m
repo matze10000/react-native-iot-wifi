@@ -65,8 +65,12 @@
                 if (ssids != nil && [ssids indexOfObject:ssid] != NSNotFound) {
                     [[NEHotspotConfigurationManager sharedManager] removeConfigurationForSSID:ssid];
                 }
-                callback(@[[NSNull null]]);
+                
             }];
+            if (ssid && [ssid length]) {
+			    [[NEHotspotConfigurationManager sharedManager] removeConfigurationForSSID:ssid];
+                callback(@["removed"]);
+            }
         } else {
             callback(@[@"Not supported in iOS<11.0"]);
         }
